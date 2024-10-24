@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import './logo.svg';
 import './App.css';
 
 // Import necessary modules from React library
