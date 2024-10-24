@@ -23,7 +23,7 @@ const Navbar = () => {
         // remove email phone
         localStorage.removeItem("doctorData");
         setIsLoggedIn(false);
-        // setUsername("");
+        setUsername("");
        
         // Remove the reviewFormData from local storage
         for (let i = 0; i < localStorage.length; i++) {
@@ -38,14 +38,18 @@ const Navbar = () => {
     const handleDropdown = () => {
       setShowDropdown(!showDropdown);
     }
-    useEffect(() => { 
-      const storedemail = sessionStorage.getItem("email");
-
-      if (storedemail) {
-            setIsLoggedIn(true);
-            setUsername(storedemail);
-          }
-        }, []);
+    useEffect(() => {
+        const storedemail = sessionStorage.getItem("email");
+        
+        if (storedemail) {
+          // Extract only letters, numbers, _ and - before the @ symbol using regex
+          const match = storedemail.match(/^[a-zA-Z0-9_-]+/);
+          const username = match ? match[0] : storedemail; // Default to the entire email if no match found
+          setIsLoggedIn(true);
+          setUsername(username);
+        }
+      }, []);
+      
 
   return (
     <header>
