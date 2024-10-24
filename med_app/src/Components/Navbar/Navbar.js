@@ -59,10 +59,30 @@ const Navbar = () => {
           <li><Link to="/blog">Health Blog</Link></li>
           <li><Link to="/reviews">Reviews</Link></li>
         </ul>
-        <div className="auth-buttons">
+
+
+        {isLoggedIn?(
+          <>
+          <div className="auth-buttons">
+            <ul className="nav-links">
+                <li>Welcome, {username}</li>
+            </ul>
+              <button className="pill-button" onClick={handleLogout}>
+                Logout
+              </button>
+              </div>
+            
+          </>
+        ) : (
+          <>
+            <div className="auth-buttons">
           <Link to="/Sign_Up" className="pill-button signup-btn">Sign Up</Link>
           <Link to="/Login" className="pill-button login-btn">Login</Link>
         </div>
+          </>
+        )}
+
+        
       </nav>
     </header>
   );
