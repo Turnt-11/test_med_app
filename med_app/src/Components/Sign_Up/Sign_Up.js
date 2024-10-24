@@ -67,7 +67,7 @@ const Sign_Up = () => {
         {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
 
         <label htmlFor="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" />
+        <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" id="phone" name="phone" required placeholder="Enter your phone number" />
         {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
 
         <label htmlFor="email">Email:</label>
@@ -75,7 +75,7 @@ const Sign_Up = () => {
         {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
         
         <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" required placeholder="Enter your password" />
+        <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" required placeholder="Enter your password" />
         {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
 
         <div className="button-group">
