@@ -11,7 +11,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
 
   // Load appointments from localStorage when the component mounts
   useEffect(() => {
-    const savedAppointments = JSON.parse(localStorage.getItem(`appointments_${name}`));
+    const savedAppointments = JSON.parse(localStorage.getItem(`${name}`));
     if (savedAppointments) {
       setAppointments(savedAppointments);
     }
@@ -26,7 +26,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
     setAppointments(updatedAppointments);
-    localStorage.setItem(`appointments_${name}`, JSON.stringify(updatedAppointments));
+    localStorage.setItem(`${name}`, JSON.stringify(updatedAppointments));
   };
 
   // Function to handle form submission
@@ -37,7 +37,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
     };
     const updatedAppointments = [...appointments, newAppointment];
     setAppointments(updatedAppointments);
-    localStorage.setItem(`appointments_${name}`, JSON.stringify(updatedAppointments)); // Save to localStorage
+    localStorage.setItem(`${name}`, JSON.stringify(updatedAppointments)); // Save to localStorage
     setShowModal(false);
   };
 
