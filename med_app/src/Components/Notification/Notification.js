@@ -10,7 +10,7 @@ const Notification = () => {
 
   useEffect(() => {
     // Retrieve stored username from sessionStorage
-    const storedUsername = sessionStorage.getItem('email'); 
+    const storedUsername = sessionStorage.getItem('email');
     // Retrieve doctor data and appointment data from localStorage
     const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
     
@@ -53,8 +53,7 @@ const Notification = () => {
     }
   };
 
-  // Debug: Log the current states before returning JSX
-  console.log("Rendering Notification:");
+  // Debugging logs to verify the state inside the return
   console.log("isLoggedIn:", isLoggedIn);
   console.log("isNotificationVisible:", isNotificationVisible);
   console.log("doctorData:", doctorData);
@@ -62,7 +61,7 @@ const Notification = () => {
 
   return (
     <div className="notification-container">
-      {isLoggedIn && appointmentData && isNotificationVisible (
+      {isLoggedIn && appointmentData && isNotificationVisible ? (
         <div className="appointment-card">
           <div className="appointment-card__content">
             <h3 className="appointment-card__title">Appointment Details</h3>
@@ -76,6 +75,13 @@ const Notification = () => {
               Cancel Appointment
             </button>
           </div>
+        </div>
+      ) : (
+        // Debugging message if the condition fails
+        <div className="debug-message">
+          {isLoggedIn ? null : <p>Not Logged In</p>}
+          {appointmentData ? null : <p>No Appointment Data</p>}
+          {isNotificationVisible ? null : <p>Notification Not Visible</p>}
         </div>
       )}
     </div>
