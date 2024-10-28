@@ -5,7 +5,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [dateOfApp, setDOA] = useState('');
 
-    const [selectedSlot, setSelectedSlot] = useState(null);
+    const [selectedSlot, setSelectedSlot] = useState('');
   
 
     const timeSlots = [];
@@ -28,7 +28,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     };
   
     return (
-      <form onSubmit={handleFormSubmit} className="appointment-form">
+      <form onSubmit={handleFormSubmit} className="appointment-form" method="POST">
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input

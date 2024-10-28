@@ -1,0 +1,44 @@
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+    padding: 15px;
+    background-color: green;
+    color: white; /* Make sure the text is visible */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .appointment-card {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .appointment-card__title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .appointment-card__message {
+    font-size: 0.9em;
+  }
+  
+  .cancel-button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover {
+    background-color: #ff3333;
+  }
+  

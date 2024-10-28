@@ -59,7 +59,7 @@ const Navbar = () => {
         </div></Link>
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/appointments">Appointments</Link></li>
+          <li><Link to="/FindDoctorSearch">Appointments</Link></li>
           <li><Link to="/blog">Health Blog</Link></li>
           <li><Link to="/reviews">Reviews</Link></li>
         </ul>
