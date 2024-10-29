@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-
 // Function component for giving reviews
 function GiveReviews() {
 

@@ -13,6 +13,28 @@
   border: 1px solid #ddd;
 }
 
+button {
+  padding: 10px 15px;
+  background-color: #4CAF50; /* Default button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049; /* Hover color */
+}
+
+/* Disabled button styles */
+button:disabled {
+  background-color: #cccccc; /* Gray color for disabled button */
+  color: #666666; /* Darker text for contrast */
+  cursor: not-allowed; /* Change cursor to indicate non-clickable */
+  opacity: 0.7; /* Reduce opacity for a more muted look */
+}
+
 .form-popup {
   position: fixed;
   top: 50%;
