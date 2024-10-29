@@ -7,13 +7,13 @@ const Notification = () => {
   const [doctorData, setDoctorData] = useState(null);
   const [appointmentData, setAppointmentData] = useState(null);
   const [isNotificationVisible, setIsNotificationVisible] = useState(false);
+  const storedDoctorData = JSON.parse(localStorage.getItem('Dr. Jiao Yang'));
 
   useEffect(() => {
     // Retrieve stored username from sessionStorage
     const storedUsername = sessionStorage.getItem('email');
     // Retrieve doctor data and appointment data from localStorage
-    const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-    
+    const storedDoctorData = JSON.parse(localStorage.getItem('Dr. Jiao Yang'));
     // Check if doctor data is present before accessing its name to fetch appointment data
     const storedAppointmentData = storedDoctorData 
       ? JSON.parse(localStorage.getItem(storedDoctorData.name)) 
@@ -36,8 +36,8 @@ const Notification = () => {
     }
 
     // Set appointmentData state if storedAppointmentData exists and show the notification
-    if (storedAppointmentData) {
-      setAppointmentData(storedAppointmentData);
+    if (storedDoctorData) {
+      setAppointmentData(storedDoctorData);
       setIsNotificationVisible(true);
     }
   }, []); // Empty dependency array ensures useEffect runs only once after initial render
@@ -53,35 +53,36 @@ const Notification = () => {
     }
   };
 
+    const appointmentDataPassed = storedDoctorData.length > 0 ? true : false;
   // Debugging logs to verify the state inside the return
-  console.log("isLoggedIn:", isLoggedIn);
-  console.log("isNotificationVisible:", isNotificationVisible);
-  console.log("doctorData:", doctorData);
-  console.log("appointmentData:", appointmentData);
+  console.log("isLoggedIn2:", isLoggedIn);
+  console.log("isNotificationVisible2:", isNotificationVisible);
+  console.log("doctorData2:", storedDoctorData[0]?.name);
+  console.log("appointmentData2:", storedDoctorData[0]?.doctorName);
 
   return (
     <div className="notification-container">
-      {isLoggedIn && appointmentData && isNotificationVisible ? (
+      {isLoggedIn && appointmentDataPassed && isNotificationVisible ? (
         <div className="appointment-card">
           <div className="appointment-card__content">
             <h3 className="appointment-card__title">Appointment Details</h3>
             <p className="appointment-card__message">
-              <strong>Doctor:</strong> {doctorData?.name || "N/A"}<br />
-              <strong>Patient:</strong> {username}<br />
-              <strong>Date:</strong> {appointmentData?.date || "N/A"}<br />
-              <strong>Time:</strong> {appointmentData?.time || "N/A"}
+              <strong>Doctor:</strong> {storedDoctorData[0]?.doctorName || "N/A"}<br />
+              <strong>Specialty:</strong> {storedDoctorData[0]?.doctorSpeciality || "N/A"}<br />
+              <strong>Patient:</strong> {storedDoctorData[0]?.name}<br />
+              <strong>Phone Number:</strong> {storedDoctorData[0]?.phoneNumber || "N/A"}<br />
+              <strong>Date:</strong> {storedDoctorData[0]?.dateOfApp || "N/A"}<br />
+              <strong>Time:</strong> {storedDoctorData[0]?.selectedSlot || "N/A"}
             </p>
-            <button className="cancel-button" onClick={handleCancelAppointment}>
+
+            {/* <button className="cancel-button" onClick={handleCancelAppointment}>
               Cancel Appointment
-            </button>
+            </button> */}
           </div>
         </div>
       ) : (
         // Debugging message if the condition fails
         <div className="debug-message">
-          {isLoggedIn ? null : <p>Not Logged In</p>}
-          {appointmentData ? null : <p>No Appointment Data</p>}
-          {isNotificationVisible ? null : <p>Notification Not Visible</p>}
         </div>
       )}
     </div>
