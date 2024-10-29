@@ -35,6 +35,16 @@ const Navbar = () => {
         setEmail('');
         window.location.reload();
     }
+
+
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prevOpen) => !prevOpen);
+  };
+
+  
     const handleDropdown = () => {
       setShowDropdown(!showDropdown);
     }
@@ -68,13 +78,24 @@ const Navbar = () => {
         {isLoggedIn?(
           <>
           <div className="auth-buttons">
-            <ul className="nav-links">
-                <li>Welcome, {username}</li>
+      <div className="nav-links">
+        <div className="dropdown">
+          <button className="dropdown-toggle" onClick={toggleDropdown}>
+            Welcome, {username}
+          </button>
+          {dropdownOpen && (
+            <ul className="dropdown-menu">
+              <li>
+                <a href="/profile">Your Profile</a>
+              </li>
             </ul>
-              <button className="pill-button" onClick={handleLogout}>
-                Logout
-              </button>
-              </div>
+          )}
+        </div>
+      </div>
+      <button className="pill-button" onClick={handleLogout}>
+        Logout
+      </button>
+    </div>
             
           </>
         ) : (

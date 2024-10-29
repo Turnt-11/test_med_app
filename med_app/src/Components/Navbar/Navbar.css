@@ -32,7 +32,10 @@
     font-size: 16px;
     transition: color 0.3s ease;
 }
-
+.dropdown-toggle {
+    width:100%;
+    margin-right: 50px;
+}
 .nav-links li a:hover {
     color: #333;
 }
@@ -42,6 +45,7 @@
 }
 
 .pill-button {
+    max-height:50px;
     border: none;
     border-radius: 50px;
     padding: 10px 20px;
