@@ -1,0 +1,31 @@
+.reviews-container {
+  padding: 20px;
+}
+
+.reviews-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reviews-table th,
+.reviews-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.form-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-popup textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
