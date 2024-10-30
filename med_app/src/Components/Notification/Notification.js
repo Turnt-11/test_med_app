@@ -7,7 +7,13 @@ const Notification = () => {
   const [doctorData, setDoctorData] = useState(null);
   const [appointmentData, setAppointmentData] = useState(null);
   const [isNotificationVisible, setIsNotificationVisible] = useState(false);
-  const storedDoctorData = JSON.parse(localStorage.getItem('Dr. Jiao Yang'));
+  let storedDoctorData = JSON.parse(localStorage.getItem('Dr. Jiao Yang'));
+
+// Check if it is null (doesn't exist in localStorage) and initialize it if necessary
+if (!storedDoctorData) {
+  storedDoctorData = [];
+  localStorage.setItem('Dr. Jiao Yang', JSON.stringify(storedDoctorData));
+}
 
   useEffect(() => {
     // Retrieve stored username from sessionStorage
