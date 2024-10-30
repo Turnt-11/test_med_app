@@ -15,11 +15,12 @@
     "react-scripts": "5.0.1",
     "reactjs-popup": "^2.0.6",
     "server": "^1.0.41",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.95.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rdf server/build && mv build server/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
