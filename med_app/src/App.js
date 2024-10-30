@@ -19,6 +19,7 @@ import DoctorCard from './Components/DoctorCard/DoctorCard';
 import Notification from './Components/Notification/Notification';
 import Reviews from './Components/ReviewForm/Reviews';
 import ProfileForm from './Components/ProfileCard/ProfileCard';
+import ReportsLayout from './Components/ReportsLayout/ReportsLayout';
 // Function component for the main App
 function App() {
   // Render the main App component
@@ -42,6 +43,7 @@ function App() {
           <Route path="/FindDoctorSearch" element={<BookingConsultation />} />
           <Route path="/Reviews" element={<Reviews/>}/>
           <Route path="/Profile" element={<ProfileForm/>}/>
+          <Route path="/Reports" element={<ReportsLayout />} />
         </Routes>
       </BrowserRouter>
     </div>

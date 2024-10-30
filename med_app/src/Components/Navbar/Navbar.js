@@ -84,9 +84,12 @@ const Navbar = () => {
             Welcome, {username}
           </button>
           {dropdownOpen && (
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu" style={{backgroundColor: 'grey', padding: '8px'}}>
               <li>
                 <a href="/profile">Your Profile</a>
+              </li>
+              <li>
+                <a href="/reports">Your Reports</a>
               </li>
             </ul>
           )}
